@@ -43,7 +43,7 @@ const AddSale = (props) => {
                                             (response)=>{
                                                 console.log(response.data);
                                                 toast("Data Saved Successfully !!");
-                                                setList({});
+                                                
                                             },
                                             (error)=>{
                                                 toast("Data can't be saved !!");
