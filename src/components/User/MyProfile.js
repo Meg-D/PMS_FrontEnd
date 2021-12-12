@@ -1,7 +1,9 @@
 import React from "react";
 import {useState} from "react";
 import base_url from "../../api/bootapi";
-import { ReactComponent as Mail } from "./../mail.svg";
+import { ReactComponent as Mail } from "../../images/mail.svg";
+import axios from "axios";
+import { toast } from "react-toastify";
 
 const MyProfile = () => {
 
