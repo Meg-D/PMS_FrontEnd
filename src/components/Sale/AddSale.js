@@ -22,13 +22,14 @@ const AddSale = (props) => {
     const [saleId,setsaleid] = useState('');
     const [item,setitem] = useState({});
     const user = localStorage.getItem('userid');
-
+    const saleid = localStorage.getItem('saleid');
         const saveBill = () =>{
-                    axios.put(`${base_url}/sale/update/${user}`).then(
+                    axios.put(`${base_url}/sale/update/${saleid}`).then(
                                                     (response)=>{
                                                         console.log(response.data);
                                                         toast("Data Saved Successfully !!");
-
+                                                        console.log(response.data.amount);
+                                                        alert("Total Amount : "+ response.data.amount);
                                                     },
                                                     (error)=>{
                                                         toast("Data can't be saved !!");
@@ -42,7 +43,7 @@ const AddSale = (props) => {
                                             (response)=>{
                                                 console.log(response.data);
                                                 toast("Data Saved Successfully !!");
-
+                                                setList({});
                                             },
                                             (error)=>{
                                                 toast("Data can't be saved !!");
