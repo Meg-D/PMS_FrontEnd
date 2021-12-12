@@ -8,7 +8,8 @@ import {
 } from 'reactstrap';
 import axios from "axios";
 import base_url from '../../api/bootapi';
-import vendormenu from '../Vendor/VendorMenu';
+import { Row,Col,Container } from 'reactstrap';
+import Request from './Request';
 
 const ShowRequest = (props) => {
 
@@ -45,50 +46,64 @@ const ShowRequest = (props) => {
     const toggle = () => setModal(!modal);
 
     return (
-        <Form>
-            <FormGroup>
-                <Label for="examplerequest">Select Request</Label>
-                <Input type="select" name="select" id="requestSelect" onChange={(e) => {
-                    const requestName = e.target.value;
-                    for(var i=0;i<requests.length;i++){
-                        var obj = requests[i];
-                        if(obj.medicine_name == requestName){
-                            setrequest(obj)
-                            console.log(request);
-                            setUser(obj.placed_by);
-                            setUser2(obj.accepted_by);
-                            setVendor(obj.vendor_id);
-                        }
-                    }
+        // <Form>
+        //     <FormGroup>
+        //         <Label for="examplerequest">Select Request</Label>
+        //         <Input type="select" name="select" id="requestSelect" onChange={(e) => {
+        //             const requestName = e.target.value;
+        //             for(var i=0;i<requests.length;i++){
+        //                 var obj = requests[i];
+        //                 if(obj.medicine_name == requestName){
+        //                     setrequest(obj)
+        //                     console.log(request);
+        //                     setUser(obj.placed_by);
+        //                     setUser2(obj.accepted_by);
+        //                     setVendor(obj.vendor_id);
+        //                 }
+        //             }
 
 
-                }}>
-                    <option>[Select one]</option>
-                    {
-                        requests.length > 0 ? requests.map((item) => <option>{item.medicine_name}</option>) : "No request"
-                    }
-                </Input>
-            </FormGroup>
-            <Button color="primary" onClick={toggle}>Show Details</Button>
-            <Modal isOpen={modal} toggle={toggle} className={className}>
-                <ModalHeader toggle={toggle}>Request Details :</ModalHeader>
-                <ModalBody>
-                    Medicine Name : {request.medicine_name}<br/>
-                    Quantity : {request.quantity}<br/>
-                    Status : {request.status}<br/>
-                    Order Date : {request.order_date}<br/>
-                    Placed by : {user.username}<br/>
-                    {/* Delivery Date : {request.delivery_date}<br/>
-                    Accepted by : {user2.username}<br/>
-                    Vendor : {vendor.name}<br/> */}
-                </ModalBody>
-                <ModalFooter>
-                    <Button color="primary" onClick={toggle}>Go Back</Button>{' '}
-                </ModalFooter>
-            </Modal>
-            <hr/>
-        </Form>
-
+        //         }}>
+        //             <option>[Select one]</option>
+        //             {
+        //                 requests.length > 0 ? requests.map((item) => <option>{item.medicine_name}</option>) : "No request"
+        //             }
+        //         </Input>
+        //     </FormGroup>
+        //     <Button color="primary" onClick={toggle}>Show Details</Button>
+        //     <Modal isOpen={modal} toggle={toggle} className={className}>
+        //         <ModalHeader toggle={toggle}>Request Details :</ModalHeader>
+        //         <ModalBody>
+        //             Medicine Name : {request.medicine_name}<br/>
+        //             Quantity : {request.quantity}<br/>
+        //             Status : {request.status}<br/>
+        //             Order Date : {request.order_date}<br/>
+        //             Placed by : {user.username}<br/>
+        //             {/* Delivery Date : {request.delivery_date}<br/>
+        //             Accepted by : {user2.username}<br/>
+        //             Vendor : {vendor.name}<br/> */}
+        //         </ModalBody>
+        //         <ModalFooter>
+        //             <Button color="primary" onClick={toggle}>Go Back</Button>{' '}
+        //         </ModalFooter>
+        //     </Modal>
+        //     <hr/>
+        // </Form>
+        <div>
+        <Container fluid>
+            <Row>
+               {
+                   requests.length > 0
+                       ? requests.map((item) => 
+                       <Col sm="2">
+                           <Request request={item} user={item.placed_by} />
+                       </Col>
+                       )
+                       : "No Requests"
+               }
+             </Row> 
+       </Container>  
+   </div>
     );
 }
 

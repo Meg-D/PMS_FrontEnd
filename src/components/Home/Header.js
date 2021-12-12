@@ -11,10 +11,10 @@ function Header({ name, title }) {
       </Link>
 
       <div className="flex flex-row items-center">
-        <div className="flex flex-row items-center p-3 mr-4 bg-gray-200 rounded-xl">
+        {/* <div className="flex flex-row items-center p-3 mr-4 bg-gray-200 rounded-xl">
           <Search className="" />
           <div className="pl-2 pr-16">Search</div>
-        </div>
+        </div> */}
 
         <Link to="/myprofile">
           <img src={profile} alt="profile" />

@@ -43,7 +43,7 @@ const Addvendor = (props) => {
             </FormGroup>
             <FormGroup>
                              <Label for="exampleCost">Phone</Label>
-                             <Input type="text" name="cost" id="exampleCost" onChange={(e) => {
+                             <Input type="number" name="cost" id="exampleCost" onChange={(e) => {
                                 setvendor({...vendor, phone : e.target.value})
                                       }}/>
                         </FormGroup>

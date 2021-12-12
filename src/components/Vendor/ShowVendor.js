@@ -8,6 +8,8 @@ import {
 } from 'reactstrap';
 import axios from "axios";
 import base_url from '../../api/bootapi';
+import { Row,Col,Container } from 'reactstrap';
+import Vendor from './Vendor';
 
 const Showvendor = (props) => {
 
@@ -45,42 +47,56 @@ const Showvendor = (props) => {
     const toggle = () => setModal(!modal);
 
     return (
-        <Form>
-            <FormGroup>
-                <Label for="examplevendor">Select vendor</Label>
-                <Input type="select" name="select" id="vendorSelect" onChange={(e) => {
-                    const vendorName = e.target.value;
-                    for(var i=0;i<vendors.length;i++){
-                        var obj = vendors[i];
-                        if(obj.name == vendorName){
-                            setvendor(obj)
-                        }
-                    }
+        // <Form>
+        //      <FormGroup>
+        //         <Label for="examplevendor">Select vendor</Label>
+        //         <Input type="select" name="select" id="vendorSelect" onChange={(e) => {
+        //             const vendorName = e.target.value;
+        //             for(var i=0;i<vendors.length;i++){
+        //                 var obj = vendors[i];
+        //                 if(obj.name == vendorName){
+        //                     setvendor(obj)
+        //                 }
+        //             }
 
 
-                }}>
-                    <option>[Select one]</option>
+        //         }}>
+        //             <option>[Select one]</option>
+        //             {
+        //                 vendors.length > 0 ? vendors.map((item) => <option>{item.name}</option>) : "No vendor"
+        //             }
+        //         </Input>
+        //     </FormGroup>
+        //     <Button color="primary" onClick={toggle}>Show Details</Button>
+        //     <Modal isOpen={modal} toggle={toggle} className={className}>
+        //         <ModalHeader toggle={toggle}>vendor Details :</ModalHeader>
+        //         <ModalBody>
+        //             vendor Name : {vendor.name}<br/>
+        //             Location : {vendor.location}<br/>
+        //             Email : {vendor.email}<br/>
+        //             Phone : {vendor.phone}<br/>
+        //         </ModalBody>
+        //         <ModalFooter>
+        //             <Button color="primary" onClick={toggle}>Go Back</Button>{' '}
+        //         </ModalFooter>
+        //     </Modal> 
+        //     <hr/>
+        // </Form>
+<div>
+<Container fluid>
+                 <Row>
                     {
-                        vendors.length > 0 ? vendors.map((item) => <option>{item.name}</option>) : "No vendor"
+                        vendors.length > 0
+                            ? vendors.map((item) => 
+                            <Col sm="2">
+                                <Vendor vendor={item}/>
+                            </Col>
+                            )
+                            : "No vendors"
                     }
-                </Input>
-            </FormGroup>
-            <Button color="primary" onClick={toggle}>Show Details</Button>
-            <Modal isOpen={modal} toggle={toggle} className={className}>
-                <ModalHeader toggle={toggle}>vendor Details :</ModalHeader>
-                <ModalBody>
-                    vendor Name : {vendor.name}<br/>
-                    Location : {vendor.location}<br/>
-                    Email : {vendor.email}<br/>
-                    Phone : {vendor.phone}<br/>
-                </ModalBody>
-                <ModalFooter>
-                    <Button color="primary" onClick={toggle}>Go Back</Button>{' '}
-                </ModalFooter>
-            </Modal>
-            <hr/>
-        </Form>
-
+                  </Row> 
+            </Container>  
+</div>
     );
 }
 
