@@ -114,7 +114,7 @@ const UpdateRequest = (props) => {
                     }
                 </Input>
             </FormGroup>
-                        <Button type="reset" onClick={()=>{
+                        <Button color='success' onClick={()=>{
                             console.log(request);
                             updaterequest();
                             getAllrequest();

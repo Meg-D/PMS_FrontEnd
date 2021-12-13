@@ -36,13 +36,15 @@ const Customerhistory=(props)=>{
                 console.log(phone);
                 getAllSales(phone);
             }}>Submit</Button>
-            <Container fluid>
+            
+            <Container fluid style={{marginTop:'3%'}}>
                  <Row>
                     {
                         sales.length > 0
                             ? sales.map((item) => 
-                            <Col sm="2">
+                            <Col sm="6">
                                 <Sale sale={item} user={item.user_id} customer={item.cust_id}/>
+                                <br/>
                             </Col>
                             )
                             : "No Sales"

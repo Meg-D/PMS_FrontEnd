@@ -41,7 +41,7 @@ const AddRequest = (props) => {
                     setrequest({...request, quantity : e.target.value})
                 }}/>
             </FormGroup>
-            <Button type="reset" onClick={()=>{
+            <Button color='primary' onClick={()=>{
                 console.log(request);
                 saverequest();
             }}>Submit</Button>

@@ -47,7 +47,7 @@ const Addvendor = (props) => {
                                 setvendor({...vendor, phone : e.target.value})
                                       }}/>
                         </FormGroup>
-            <Button type="reset" onClick={()=>{
+            <Button color="primary" onClick={()=>{
                 console.log(vendor);
                 savevendor();
             }}>Submit</Button>

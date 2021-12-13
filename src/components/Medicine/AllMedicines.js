@@ -82,8 +82,9 @@ const Showmedicine = (props) => {
                     {
                         medicines.length > 0
                             ? medicines.map((item) => 
-                            <Col sm="2">
+                            <Col sm="6">
                                 <Medicine medicine={item}/>
+                                <br/>
                             </Col>
                             )
                             : "No transactions"

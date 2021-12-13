@@ -32,8 +32,9 @@ const Usertransaction=(props)=>{
                     {
                         transactions.length > 0
                             ? transactions.map((item) => 
-                            <Col sm="2">
+                            <Col sm="6">
                                 <Transaction user={item.user_id} transaction={item} medicine={item.med_id} vendor={item.ven_id}/>
+                                <br/>
                             </Col>
                             )
                             : "No transactions"

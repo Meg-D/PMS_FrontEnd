@@ -95,8 +95,9 @@ const ShowRequest = (props) => {
                {
                    requests.length > 0
                        ? requests.map((item) => 
-                       <Col sm="2">
+                       <Col sm="6">
                            <Request request={item} user={item.placed_by} />
+                           <br/>
                        </Col>
                        )
                        : "No Requests"

@@ -45,7 +45,7 @@ const AddCustomer = (props) => {
                     <option>2</option>
                     </Input>
             </FormGroup>
-            <Button type="reset" onClick={()=>{
+            <Button color="primary" onClick={()=>{
                 console.log(customer);
                 addCustomer();
             }}>Submit</Button>

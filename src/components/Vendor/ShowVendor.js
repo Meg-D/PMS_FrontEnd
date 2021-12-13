@@ -88,8 +88,9 @@ const Showvendor = (props) => {
                     {
                         vendors.length > 0
                             ? vendors.map((item) => 
-                            <Col sm="2">
+                            <Col sm="6">
                                 <Vendor vendor={item}/>
+                                <br/>
                             </Col>
                             )
                             : "No vendors"

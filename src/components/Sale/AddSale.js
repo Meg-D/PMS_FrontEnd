@@ -10,6 +10,7 @@ import { ToastContainer, toast } from "react-toastify";
 import axios from "axios";
 import { ListGroup, ListGroupItem } from 'reactstrap';
 import base_url from '../../api/bootapi';
+import {Row,Col} from 'reactstrap';
 
 const AddSale = (props) => {
 
@@ -30,6 +31,7 @@ const AddSale = (props) => {
                                                         toast("Data Saved Successfully !!");
                                                         console.log(response.data.amount);
                                                         alert("Total Amount : "+ response.data.amount);
+                                                        setnewobj([]);
                                                     },
                                                     (error)=>{
                                                         toast("Data can't be saved !!");
@@ -129,24 +131,32 @@ const AddSale = (props) => {
     return (
         <Form>
         <FormGroup>
-                                    <Label for="examplequant">Enter Customer Phone Number :</Label>
-                                    <Input type="double" name="quantity" id="exampleQuant" onChange={(e) => {
+            <Label for="examplequant" style={{align:'left'}}>Enter Customer Phone Number :</Label>
+            <Row>
+                <Col md='9'>
+                    <Input type="number" name="quantity" id="exampleQuant" onChange={(e) => {
                                         setphone(e.target.value)
                                     }}/>
-                                </FormGroup>
-        <Button type="reset" onClick={()=>{
+                </Col>
+                <Col md='3'>
+                    <Button color="primary" onClick={()=>{
                                             console.log(medicine);
                                             getCustomerByPhone();
                                         }}>Get Customer</Button>
-        <Button type="reset" onClick={()=>{
+                </Col>
+            </Row>
+        </FormGroup>
+        <hr/>
+            
+        <Button style={{width:'50%'}} color='warning' onClick={()=>{
                                     console.log(medicine);
                                     createSale();
                                 }}>Create Sale</Button>
 
-            <hr/>
-            <FormGroup>
-                <Label for="exampleResource">Select Medicine</Label>
-                <Input type="select" name="select" id="equipmentResource" onChange={(e) => {
+            
+        <FormGroup style={{marginTop:'4%'}}>
+            <Label for="exampleResource">Select Medicine</Label>
+            <Input type="select" name="select" id="equipmentResource" onChange={(e) => {
                     const medicineName = e.target.value;
                     const id = medicineName.split(" ")[0];
                     for(var i=0;i<medicines.length;i++){
@@ -164,7 +174,7 @@ const AddSale = (props) => {
                 }}>
                     <option>[Select one]</option>
                     {
-                        medicines.length > 0 ? medicines.map((item) => <option>{item.medicine_id+" - Medicine name - "+item.name+", Price - "+item.cost}</option>) : "No Luxury resources"
+                        medicines.length > 0 ? medicines.map((item) => <option>{item.name+", Price - "+item.cost+", Quantity - "+item.quantity_left}</option>) : "No Luxury resources"
                     }
                 </Input>
             </FormGroup>
@@ -180,7 +190,7 @@ const AddSale = (props) => {
                                 setitem({...item, discount : e.target.value})
                             }}/>
                         </FormGroup>
-            <Button type="reset" onClick={()=>{
+            <Button style={{width:'20%'}} type="reset" onClick={()=>{
                             console.log(medicine);
                             saveItem();
                         }}>Add</Button>
@@ -193,7 +203,7 @@ const AddSale = (props) => {
                 }
             </ul>
             </div>
-            <Button type="reset" onClick={()=>{
+            <Button style={{marginTop:'4%', width:'30%'}} color="success" onClick={()=>{
                                         console.log(medicine);
                                         saveBill();
                                     }}>Generate Bill</Button>

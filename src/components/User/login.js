@@ -33,7 +33,11 @@ export default class Login extends Component {
                             console.log("Match");
                             toast("Login Successful");
                             localStorage.setItem("userid",response.data.user_id);
-                            window.location.href = 'menu';
+                            localStorage.setItem("username",response.data.username);
+                            localStorage.setItem("address",response.data.address);
+                            localStorage.setItem("phone",response.data.phone);
+                            localStorage.setItem("password",response.data.password  );
+                            window.location.href = '/master';
                             // console.log(response.data);
                         //    localStorage.setItem('userid',response.data.id);
                           //  return <Link to={{ pathname:'/add-transaction',state:response.data.id}}</Link>
@@ -79,14 +83,14 @@ export default class Login extends Component {
                     <input type="password" name="password" className="form-control" placeholder="Enter password" onChange= {this.handleChange}/>
                 </div>
 
-                <div className="form-group">
+                {/* <div className="form-group">
                     <div className="custom-control custom-checkbox">
                         <input type="checkbox" className="custom-control-input" id="customCheck1" />
                         <label className="custom-control-label" htmlFor="customCheck1">Remember me</label>
                     </div>
-                </div>
+                </div> */}
 
-                <Button type="submit">Submit</Button>
+                <Button type="submit" style={{marginTop:'3%'}}>Submit</Button>
 
             </form>
         );

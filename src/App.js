@@ -13,6 +13,7 @@ import Menus from './components/Home/Menus';
 import customerPage from './components/Customer/CustomerPage';
 import MyProfile from './components/User/MyProfile';
 import SalePage from './components/Sale/SalePage';
+import Master from './components/Home/Master';
 function App() {
   return (
     <div className="App">
@@ -20,10 +21,11 @@ function App() {
         <Switch>
             <Route exact path="/" component={UserPage}/>
             <Route exact path="/home" component={Home}/>
+            <Route exact path="/master" component={Master}/>
             
             <Route exact path={'/login'} component={Login}/>
             <Route exact path={'/sign-up'} component={SignUp}/>
-            <Route path={'/menu'} component={Menus}/>
+            {/* <Route path={'/menu'} component={Menus}/> */}
             <Route path={'/Customer'} component={customerPage}/>
             <Route path={'/my-profile'} component={MyProfile}/>
             

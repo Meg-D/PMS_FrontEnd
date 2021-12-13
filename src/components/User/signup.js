@@ -24,7 +24,7 @@ export default class SignUp extends Component {
                         (response) => {
                             if(response.data!=""){
                                 console.log("Match");
-                                toast("Login Successful");
+                                toast("Sign-Up Successful");
 
                             }
                             else{
@@ -54,28 +54,29 @@ export default class SignUp extends Component {
                 <h3>Sign Up</h3>
 
                 <div className="form-group">
-                    <label>First name</label>
-                    <input type="text" name="username" className="form-control" placeholder="User Name" onChange= {this.handleChange}/>
+                    <label>Username</label>
+                    <input type="text" name="username" className="form-control" onChange= {this.handleChange} required="required"/>
                 </div>
 
                 <div className="form-group">
-                    <label>Last name</label>
-                    <input type="password" name="password" className="form-control" placeholder="Password" onChange= {this.handleChange}/>
+                    <label>Address</label>
+                    <input type="text" name="address" className="form-control" onChange= {this.handleChange} required="required"/>
                 </div>
 
                 <div className="form-group">
-                    <label>Email address</label>
-                    <input type="number" name="number" className="form-control" placeholder="Phone Number" onChange= {this.handleChange}/>
+                    <label>Phone</label>
+                    <input type="text" name="number" className="form-control" onChange= {this.handleChange} required="required"/>
                 </div>
 
                 <div className="form-group">
                     <label>Password</label>
-                    <input type="text" name="address" className="form-control" placeholder="Address" onChange= {this.handleChange}/>
+
+                    <input type="password" name="password" className="form-control" onChange= {this.handleChange} required="required"/>
                 </div>
 
                 <button type="submit" className="btn btn-primary btn-block">Sign Up</button>
                 <p className="forgot-password text-right">
-                    Already registered <a href="/login">sign in?</a>
+                    Already registered <a href="/">sign in?</a>
                 </p>
             </form>
         );

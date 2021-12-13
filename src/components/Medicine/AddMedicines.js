@@ -41,7 +41,7 @@ const Addmedicine = (props) => {
                     setmedicine({...medicine, cost : e.target.value})
                           }}/>
             </FormGroup>
-            <Button type="reset" onClick={()=>{
+            <Button color="primary" onClick={()=>{
                 console.log(medicine);
                 savemedicine();
             }}>Submit</Button>

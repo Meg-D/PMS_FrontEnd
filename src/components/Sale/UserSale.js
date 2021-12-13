@@ -33,8 +33,9 @@ const Usersale=(props)=>{
                     {
                         sales.length > 0
                             ? sales.map((item) => 
-                            <Col sm="2">
+                            <Col sm="6">
                                 <Sale sale={item} user={item.user_id} customer={item.cust_id}/>
+                                <br/>
                             </Col>
                             )
                             : "No sales"

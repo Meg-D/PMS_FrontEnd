@@ -11,35 +11,26 @@ import VendorMenu from "./VendorMenu";
 
 const vendorPage=(props)=>{
 
-    const handleHome=()=>{
-        let path = "/menu";
-        props.history.push(path);
-    }
-
-    const handleLogout=()=>{
-        let path = "/";
-        props.history.push(path);
-    }
+    // const handleHome=()=>{
+    //     let path = "/menu";
+    //     props.history.push(path);
+    // }
 
     return(
         <div className="Login">
             <Router>
             <ToastContainer/>
-            <Card className="my-2 bg-warning">
+            {/* <Card className="my-2 bg-warning">
                 <CardBody>
-                    <h1 className="text-center my-2">Welcome to the vendor Page</h1>
-                    <Button color = "warning" onClick={()=>{
+                    <h1 className="text-center my-2">Vendors</h1>
+                    <Button color = "primary" onClick={()=>{
                         handleHome();
                     }}>Home</Button>
-                    <Button color = "danger" onClick={()=>{
-                        handleLogout();
-                        toast("Logged Out!!")
-                    }}>Logout</Button>
                 </CardBody>
-            </Card>
+            </Card> */}
                 <Container>
                     <Row>
-                        <Col md={4}>
+                        <Col md={3}>
                             <VendorMenu/>
                         </Col>
                         <Col md={8}>

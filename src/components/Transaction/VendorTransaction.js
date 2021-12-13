@@ -61,23 +61,25 @@ const Vendortransaction=(props)=>{
                                             }
                                         </Input>
                                     </FormGroup>
-                                    <Container fluid>
+                                    <Button type="reset" onClick={()=>{
+                console.log(id);
+                getAllTransactions(id);
+            }}>Submit</Button>
+                                    <Container fluid style={{marginTop:'3%'}}>
                  <Row>
                     {
                         transactions.length > 0
                             ? transactions.map((item) => 
-                            <Col sm="2">
+                            <Col sm="6">
                                 <Transaction user={item.user_id} transaction={item} medicine={item.med_id} vendor={item.ven_id}/>
+                                <br/>
                             </Col>
                             )
                             : "No transactions"
                     }
                   </Row> 
             </Container>  
-            <Button type="reset" onClick={()=>{
-                console.log(id);
-                getAllTransactions(id);
-            }}>Submit</Button>
+            
         </Form>
     );
 }
