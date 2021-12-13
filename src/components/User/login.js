@@ -8,7 +8,7 @@ import 'react-toastify/dist/ReactToastify.css';
 //import ReactSession from 'react-client-session';
 import base_url from '../../api/bootapi';
 
-toast.configure();
+
 
 export default class Login extends Component {
 
@@ -91,6 +91,9 @@ export default class Login extends Component {
                 </div> */}
 
                 <Button type="submit" style={{marginTop:'3%'}}>Submit</Button>
+                <p className="forgot-password text-right">
+                    New User <a href="/sign-up">sign up?</a>
+                </p>
 
             </form>
         );

@@ -4,6 +4,7 @@ import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import base_url from "../../api/bootapi";
 
+
 export default class SignUp extends Component {
 
     state = {username:'',
