@@ -6,7 +6,7 @@ import vendorPage from './components/Vendor/VendorPage';
 import UserPage from './components/User/UserPage';
 import RequestPage from './components/Request/RequestPage';
 import transactionPage from './components/Transaction/TransactionPage';
-import Home from './components/Home/Home'
+import Home from './components/User/Home'
 import Login from './components/User/login';
 import SignUp from './components/User/signup';
 import Menus from './components/Home/Menus';
@@ -19,8 +19,8 @@ function App() {
     <div className="App">
       <Router>
         <Switch>
-            <Route exact path="/" component={UserPage}/>
-            <Route exact path="/home" component={Home}/>
+            <Route exact path="/" component={Home}/>
+            {/* <Route exact path="/home" component={Home}/> */}
             <Route exact path="/master" component={Master}/>
             
             <Route exact path={'/login'} component={Login}/>

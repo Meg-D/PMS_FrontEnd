@@ -12,10 +12,12 @@ const Addvendor = (props) => {
         axios.post(`${base_url}/vendor/add`,vendor).then(
             (response)=>{
                 console.log(response.data);
-                toast("Data Saved Successfully !!");
+                toast.success("Vendor Added !!",{
+                    position: "bottom-center",
+                });
             },
             (error)=>{
-                toast("Data can't be saved !!");
+                toast.error("Vendor could not be added, Try Again !!");
                 console.log(error);
             }
         );
@@ -51,6 +53,7 @@ const Addvendor = (props) => {
                 console.log(vendor);
                 savevendor();
             }}>Submit</Button>
+            <hr/>
         </Form>
     );
 }

@@ -87,7 +87,7 @@ const Showmedicine = (props) => {
                                 <br/>
                             </Col>
                             )
-                            : "No transactions"
+                            : "No medicines"
                     }
                   </Row> 
             </Container>  

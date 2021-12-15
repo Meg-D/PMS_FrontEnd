@@ -47,10 +47,12 @@ const UpdateRequest = (props) => {
             axios.put(`${base_url}/request/update`,request).then(
                 (response)=>{
                     console.log(response.data);
-                    toast("Data Updated Successfully !!");
+                    toast.success("Request Updated!!",{
+                        position: "bottom-center",
+                    });
                 },
                 (error)=>{
-                    toast("Data can't be saved !!");
+                    toast("Request could not be Updated, Try Again !!");
                     console.log(error);
                 }
             );

@@ -42,6 +42,7 @@ const Usersale=(props)=>{
                     }
                   </Row> 
             </Container>  
+            <hr/>
         </Form>
     );
 }

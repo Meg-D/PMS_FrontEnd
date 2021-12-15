@@ -64,6 +64,7 @@ const Showtransaction = (props) => {
                     }
                   </Row> 
             </Container>  
+            <hr/>
         </div>
 
     );

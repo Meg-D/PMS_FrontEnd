@@ -33,7 +33,7 @@ const TransactionPage=(props)=>{
             </Card> */}
                 <Container>
                     <Row>
-                        <Col md={4}>
+                        <Col md={3}>
                             <TransactionMenu/>
                         </Col>
                         <Col md={8}>

@@ -4,8 +4,9 @@ import {
     FormGroup,
     Label,
     Input,
-    Button, ModalHeader, ModalBody, ModalFooter, Modal,List
+    Button, List
 } from 'reactstrap';
+import { Modal} from 'react-bootstrap';
 import { ToastContainer, toast } from "react-toastify";
 import axios from "axios";
 import { ListGroup, ListGroupItem } from 'reactstrap';
@@ -24,17 +25,23 @@ const AddSale = (props) => {
     const [item,setitem] = useState({});
     const user = localStorage.getItem('userid');
     const saleid = localStorage.getItem('saleid');
+    const [bill,setBill]=useState();
         const saveBill = () =>{
                     axios.put(`${base_url}/sale/update/${saleid}`).then(
                                                     (response)=>{
                                                         console.log(response.data);
-                                                        toast("Data Saved Successfully !!");
+                                                        // toast.success("Sale Made !!",{
+                                                        //     position: "bottom-center",
+                                                        // });
                                                         console.log(response.data.amount);
-                                                        alert("Total Amount : "+ response.data.amount);
+                                                        
+                                                        //alert("Total Amount : "+ response.data.amount);
+                                                        setBill(response.data.amount);
+                                                        console.log(bill);
                                                         setnewobj([]);
                                                     },
                                                     (error)=>{
-                                                        toast("Data can't be saved !!");
+                                                        toast("Sale could not be made, Try Again !!");
                                                         console.log(error);
                                                     }
                                                 );
@@ -44,11 +51,13 @@ const AddSale = (props) => {
             axios.post(`${base_url}/item/add`,item).then(
                                             (response)=>{
                                                 console.log(response.data);
-                                                toast("Data Saved Successfully !!");
+                                                toast.success("Item Added !!",{
+                                                    position: "bottom-center",
+                                                });
                                                 
                                             },
                                             (error)=>{
-                                                toast("Data can't be saved !!");
+                                                toast.error("Item could not be added, Try Again !!");
                                                 console.log(error);
                                             }
                                         );
@@ -72,12 +81,14 @@ const AddSale = (props) => {
                     axios.post(`${base_url}/sale/add`,sale).then(
                                                     (response)=>{
                                                         console.log(response.data);
-                                                        toast("Data Saved Successfully !!");
+                                                        toast.success("Sale created !!",{
+                                                            position: "bottom-center",
+                                                        });
                                                         localStorage.setItem("saleid",response.data.sale_id)
                                                         setitem({...item,sale_id:localStorage.getItem('saleid')})
                                                     },
                                                     (error)=>{
-                                                        toast("Data can't be saved !!");
+                                                        toast.error("Sale could not be created, check Customer details and then Try Again !!");
                                                         console.log(error);
                                                     }
                                                 );
@@ -87,11 +98,15 @@ const AddSale = (props) => {
                     axios.get(`${base_url}/customer/getCustomer/${phoneNumber}`).then(
                         (response)=>{
                             console.log(response.data);
+                            toast.success("Customer Fetched!!",{
+                                position: "bottom-center",
+                            })
                             setsale({...sale,cust_id:response.data.customer_id})
                             console.log(sale);
                         },
                         (error)=>{
                             console.log(error);
+                            toast.error("Customer could not be fetched, make sure that Customer already Exists and then Try Again!!")
                         }
                     );
 
@@ -119,14 +134,25 @@ const AddSale = (props) => {
 
 
 
-
         const {
             className
         } = props;
-
+    
         const [modal, setModal] = useState(false);
-
+    
         const toggle = () => setModal(!modal);
+        // const {
+        //     className
+        // } = props;
+
+        // const [modal, setModal] = useState(false);
+
+        // const toggle = () => setModal(!modal);
+        const [show, setShow] = useState(false);
+
+        const handleClose = () => setShow(false);
+        const handleShow = () => setShow(true);
+      
 
     return (
         <Form>
@@ -166,7 +192,7 @@ const AddSale = (props) => {
                             newobj.push(obj);
                             setList({...selectedList,newobj});
                             setitem({...item,med_id:id})
-
+                            
                         }
                     }
 
@@ -174,7 +200,7 @@ const AddSale = (props) => {
                 }}>
                     <option>[Select one]</option>
                     {
-                        medicines.length > 0 ? medicines.map((item) => <option>{item.name+", Price - "+item.cost+", Quantity - "+item.quantity_left}</option>) : "No Luxury resources"
+                        medicines.length > 0 ? medicines.map((item) => <option>{item.medicine_id +" "+ item.name+", Price - "+item.cost+", Quantity - "+item.quantity_left}</option>) : "No Medicines"
                     }
                 </Input>
             </FormGroup>
@@ -206,7 +232,57 @@ const AddSale = (props) => {
             <Button style={{marginTop:'4%', width:'30%'}} color="success" onClick={()=>{
                                         console.log(medicine);
                                         saveBill();
+                                        handleShow();
                                     }}>Generate Bill</Button>
+                                    {/* <Modal isOpen={modal} toggle={toggle} className={className}>
+                                                        <ModalHeader toggle={toggle}> Bill </ModalHeader>
+                                                        <ModalBody> Total Amount : {bill} </ModalBody> 
+                                                        <ModalFooter>
+                                                            <Button color='danger' onClick={function noRefCheck(){}}> Close </Button>
+                                                        </ModalFooter>
+                                                    </Modal> */}
+
+<Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Bill</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>Total Amount : {bill}</Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Close
+          </Button>
+          {/* <Button variant="primary" onClick={handleClose}>
+            Save Changes
+          </Button> */}
+        </Modal.Footer>
+      </Modal>
+                                    <hr/>
+
+
+
+
+
+{/* 
+      <Button variant="primary" onClick={handleShow}>
+        Launch demo modal
+      </Button> */}
+
+      {/* <Modal show={show} onHide={handleClose}>
+        {/* <Modal.Header closeButton>
+          <Modal.Title>Modal heading</Modal.Title>
+        </Modal.Header> 
+        <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Close
+          </Button>
+          <Button variant="primary" onClick={handleClose}>
+            Save Changes
+          </Button>
+        </Modal.Footer>
+      </Modal> */}
+
+
         </Form>
 
     );

@@ -11,10 +11,12 @@ const AddCustomer = (props) => {
         axios.post(`${base_url}/customer/add`,customer).then(
             (response)=>{
                 console.log(response.data);
-                toast("Customer Added Successfully !!");
+                toast.success("Customer Added Successfully !!",{
+                    position: "bottom-center",
+                });
             },
             (error)=>{
-                toast("Data can't be saved !!");
+                toast.error("Customer cannot be added, Try Again !!");
                 console.log(error);
             }  
         );
@@ -49,6 +51,7 @@ const AddCustomer = (props) => {
                 console.log(customer);
                 addCustomer();
             }}>Submit</Button>
+            <hr/>
         </div>
     );
 }

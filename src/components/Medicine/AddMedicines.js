@@ -12,10 +12,12 @@ const Addmedicine = (props) => {
         axios.post(`${base_url}/medicine/add`,medicine).then(
             (response)=>{
                 console.log(response.data);
-                toast("Data Saved Successfully !!");
+                toast.success("Medicine Added !!",{
+                    position: "bottom-center",
+                });
             },
             (error)=>{
-                toast("Data can't be saved !!");
+                toast.error("Medicine cannot be added, Try Again !!");
                 console.log(error);
             }
         );
@@ -45,6 +47,7 @@ const Addmedicine = (props) => {
                 console.log(medicine);
                 savemedicine();
             }}>Submit</Button>
+             <hr/>
         </Form>
     );
 }

@@ -2,12 +2,11 @@
 import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import {Container, Row, Col, Card, CardBody, Button} from "reactstrap";
-import login from "./login";
-import signup from "./signup";
+import {Container, Row, Col, Card, CardBody, Button, ListGroup ,ListGroupItem} from "reactstrap";
+import Login from "./login";
+import SignUp from './signup';
 
-
-function UserPage() {
+const UserPage=()=> {
   return (
     <Router>
         <div className="App">
@@ -38,15 +37,37 @@ function UserPage() {
                 </CardBody>
             
             </Card>
+<ListGroup>
 
-          <div className="auth-wrapper">
-            <div className="auth-inner">
+<ListGroupItem>
+  <Link
+  
+  className="list-group-item list-group-item-action"
+  tag="a"
+  to="/login"
+>
+  Already Registered? Login!
+</Link>
+</ListGroupItem>
+
+<ListGroupItem>
+<Link
+    className="list-group-item list-group-item-action"
+    tag="a"
+    to="/sign-up"
+  >
+    New User? Register!
+  </Link>
+</ListGroupItem>
+</ListGroup>
+          {/* <div className="auth-wrapper" style={{marginTop:'5%'}}>
+            <div className="auth-inner"> */}
               <Switch>
-                <Route exact path='/' component={login} />
-                <Route exact path="/sign-up" component={signup} />
+                <Route exact path='/login' component={Login} />
+                <Route exact path="/sign-up" component={SignUp} />
               </Switch>
-            </div>
-          </div>
+            {/* </div>
+          </div> */}
           </Container>
         </div>
         

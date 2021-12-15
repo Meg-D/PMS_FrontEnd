@@ -1,8 +1,10 @@
 import React, { Component } from "react";
 import axios from 'axios';
 import { ToastContainer, toast } from "react-toastify";
+import { Button, Form, FormGroup, Label, Input} from 'reactstrap';
 import 'react-toastify/dist/ReactToastify.css';
 import base_url from "../../api/bootapi";
+import UserPage from "./UserPage";
 
 
 export default class SignUp extends Component {
@@ -52,33 +54,37 @@ export default class SignUp extends Component {
     render() {
         return (
             <form onSubmit = {this.handleSubmit}>
-                <h3>Sign Up</h3>
+                <div className="auth-wrapper" style={{ marginTop: '7%'}}>
+                    <div className="auth-inner">
+                <h3>Sign Up</h3> 
 
-                <div className="form-group">
+                <div className="form-group" style={{marginTop:'5%'}}>
                     <label>Username</label>
                     <input type="text" name="username" className="form-control" onChange= {this.handleChange} required="required"/>
                 </div>
 
-                <div className="form-group">
+                <div className="form-group" style={{marginTop:'5%'}}>
                     <label>Address</label>
                     <input type="text" name="address" className="form-control" onChange= {this.handleChange} required="required"/>
                 </div>
 
-                <div className="form-group">
+                <div className="form-group" style={{marginTop:'5%'}}>
                     <label>Phone</label>
                     <input type="text" name="number" className="form-control" onChange= {this.handleChange} required="required"/>
                 </div>
 
-                <div className="form-group">
+                <div className="form-group" style={{marginTop:'5%'}}>
                     <label>Password</label>
 
                     <input type="password" name="password" className="form-control" onChange= {this.handleChange} required="required"/>
                 </div>
 
-                <button type="submit" className="btn btn-primary btn-block">Sign Up</button>
-                <p className="forgot-password text-right">
-                    Already registered <a href="/">sign in?</a>
-                </p>
+                <Button type="submit" style={{marginTop:'7%'}}>Sign Up</Button>
+                {/* <p className="forgot-password text-right">
+                    Already registered <a href="/login">sign in?</a>
+                </p> */}
+                </div>
+                </div>
             </form>
         );
     }

@@ -104,6 +104,7 @@ const ShowRequest = (props) => {
                }
              </Row> 
        </Container>  
+       <hr/>
    </div>
     );
 }

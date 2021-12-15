@@ -34,10 +34,12 @@ const Updatemedicine = (props) => {
             axios.put(`${base_url}/medicine/update`,medicine).then(
                 (response)=>{
                     console.log(response.data);
-                    toast("Data Updated Successfully !!");
+                    toast("Medicine Updated !!",{
+                        position: "bottom-center",
+                    });
                 },
                 (error)=>{
-                    toast("Data can't be saved !!");
+                    toast.error("Medicine could not be updated, Try Again !!");
                     console.log(error);
                 }
             );

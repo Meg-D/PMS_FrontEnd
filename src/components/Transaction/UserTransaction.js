@@ -41,6 +41,7 @@ const Usertransaction=(props)=>{
                     }
                   </Row> 
             </Container>  
+            <hr/>
         </Form>
     );
 }

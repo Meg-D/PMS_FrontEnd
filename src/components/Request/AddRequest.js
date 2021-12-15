@@ -15,10 +15,12 @@ const AddRequest = (props) => {
         axios.post(`${base_url}/request/add`,request).then(
             (response)=>{
                 console.log(response.data);
-                toast("Data Saved Successfully !!");
+                toast.success("Request Added !!",{
+                    position: "bottom-center",
+                });
             },
             (error)=>{
-                toast("Data can't be saved !!");
+                toast("Request could not be added, Try Again !!");
                 console.log(error);
             }
         );
@@ -45,6 +47,7 @@ const AddRequest = (props) => {
                 console.log(request);
                 saverequest();
             }}>Submit</Button>
+            <hr/>
         </Form>
     );
 }

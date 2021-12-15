@@ -17,10 +17,12 @@ const Addtransaction = (props) => {
         axios.post(`${base_url}/transaction/add`,transaction).then(
             (response)=>{
                 console.log(response.data);
-                toast("Data Saved Successfully !!");
+                toast.success("Transaction Added !!",{
+                    position: "bottom-center",
+                });
             },
             (error)=>{
-                toast("Data can't be saved !!");
+                toast.error("Transaction could not added, Try Again !!");
                 console.log(error);
             }
         );
@@ -93,6 +95,7 @@ const Addtransaction = (props) => {
                 console.log(transaction);
                 savetransaction();
             }}>Submit</Button>
+            <hr/>
         </Form>
     );
 }

@@ -34,11 +34,13 @@ const Deletevendor = (props) => {
     const deletevendor=(id)=>{
             axios.delete(`${base_url}/vendor/delete/${id}`).then(
                 (response)=>{
-                    toast.success("vendor deleted");
+                    toast.success("Vendor Deleted",{
+                        position: "bottom-center",
+                    });
                     getAllvendor();
                 },
                 (error)=>{
-                    toast.error("Can't delete vendor , server problem");
+                    toast.error("Can't delete vendor , Try Again !!");
                 }
             )
         }

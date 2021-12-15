@@ -79,7 +79,7 @@ const Vendortransaction=(props)=>{
                     }
                   </Row> 
             </Container>  
-            
+            <hr/>
         </Form>
     );
 }

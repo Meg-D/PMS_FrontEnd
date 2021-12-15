@@ -97,6 +97,7 @@ const Showvendor = (props) => {
                     }
                   </Row> 
             </Container>  
+            <hr/>
 </div>
     );
 }

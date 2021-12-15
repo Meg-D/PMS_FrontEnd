@@ -51,6 +51,7 @@ const Customerhistory=(props)=>{
                     }
                   </Row> 
             </Container>  
+            <hr/>
         </Form>
     );
 }

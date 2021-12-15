@@ -34,11 +34,13 @@ const Deletemedicine = (props) => {
     const deleteMedicine=(id)=>{
             axios.put(`${base_url}/medicine/delete/${id}`).then(
                 (response)=>{
-                    toast.success("Medicine deleted");
+                    toast.success("Medicine deleted",{
+                        position: "bottom-center",
+                    });
                     getAllmedicine();
                 },
                 (error)=>{
-                    toast.error("Can't delete medicine , server problem");
+                    toast.error("Can't delete medicine , Try Again !!");
                 }
             )
         }
