@@ -98,9 +98,14 @@ const AddSale = (props) => {
                     axios.get(`${base_url}/customer/getCustomer/${phoneNumber}`).then(
                         (response)=>{
                             console.log(response.data);
-                            toast.success("Customer Fetched!!",{
+                            if(response.data==[]){
+                                toast.error("Customer does not exists, add Customer and then Try Again!!")
+                            }
+                            else
+                            {toast.success("Customer Fetched!!",{
                                 position: "bottom-center",
                             })
+                        }
                             setsale({...sale,cust_id:response.data.customer_id})
                             console.log(sale);
                         },
