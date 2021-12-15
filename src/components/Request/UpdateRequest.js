@@ -94,7 +94,7 @@ const UpdateRequest = (props) => {
                 </Input>
             </FormGroup>
             <FormGroup>
-                 <Label for="exampleprice">price</Label>
+                 <Label for="exampleprice">Price</Label>
                  <Input type="double" name="cost" id="exampleCost" onChange={(e) => {
                     setrequest({...request, price : e.target.value})
                           }}/>

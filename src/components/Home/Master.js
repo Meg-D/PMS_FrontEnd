@@ -36,7 +36,7 @@ const Master=(props)=>{
             <ToastContainer/>
 
             <Container style={{ marginTop: '2%'},{background: 'linear-gradient(#81c9e6, #ffffff)'}}>
-            <Card className="my-5" style={{backgroundColor: '#bbd6e2'}} >
+            <Card className="my-3" style={{backgroundColor: '#bbd6e2'}} >
                 <CardBody style={{marginBottom : '0.5%', marginTop: '2%',paddingBottom:'0.5%'}} >
                     <h1   className="text-center my-4">Pharmacy Management System</h1>
                     {/* <Button style = {{marginRight: '5%'}} color = "warning" onClick={()=>{

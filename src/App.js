@@ -14,12 +14,15 @@ import customerPage from './components/Customer/CustomerPage';
 import MyProfile from './components/User/MyProfile';
 import SalePage from './components/Sale/SalePage';
 import Master from './components/Home/Master';
+import img from './images/bg.jpeg'
+
 function App() {
   return (
     <div className="App">
+      {/* <img src={img}></img> */}
       <Router>
         <Switch>
-            <Route exact path="/" component={Home}/>
+            <Route exact path="/" component={Login}/>
             {/* <Route exact path="/home" component={Home}/> */}
             <Route exact path="/master" component={Master}/>
             
@@ -37,6 +40,7 @@ function App() {
             <Route path={'/Transaction'} component={transactionPage}/>
         </Switch>
      </Router>
+     
     </div>
   );
 }

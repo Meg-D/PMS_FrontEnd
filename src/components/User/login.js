@@ -7,6 +7,7 @@ import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 //import ReactSession from 'react-client-session';
 import base_url from '../../api/bootapi';
+import UserPage from "./UserPage";
 
 
 
@@ -70,7 +71,9 @@ export default class Login extends Component {
 
     render() {
         return (
+            <div>
             <form onSubmit = {this.handleSubmit}>
+                <UserPage/>
                 <div className="auth-wrapper" style={{ marginTop: '7%'}}>
                     <div className="auth-inner">
                 <h3>Sign In</h3>
@@ -96,9 +99,16 @@ export default class Login extends Component {
                 {/* <p className="forgot-password text-right">
                     New User <a href="/sign-up">sign up?</a>
                 </p> */}
-</div>
+
+
+<p className="forgot-password text-right">
+                New User?
+                <Link tag="a" to="/sign-up"> Sign up!</Link>
+                </p>
+                </div>
                 </div>
             </form>
+            </div>
         );
     }
 }

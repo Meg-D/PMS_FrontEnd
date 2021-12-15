@@ -5,6 +5,8 @@ import { Button, Form, FormGroup, Label, Input} from 'reactstrap';
 import 'react-toastify/dist/ReactToastify.css';
 import base_url from "../../api/bootapi";
 import UserPage from "./UserPage";
+import {Link} from "react-router-dom";
+import reactRouterDom from "react-router-dom";
 
 
 export default class SignUp extends Component {
@@ -54,6 +56,7 @@ export default class SignUp extends Component {
     render() {
         return (
             <form onSubmit = {this.handleSubmit}>
+                <UserPage/>
                 <div className="auth-wrapper" style={{ marginTop: '7%'}}>
                     <div className="auth-inner">
                 <h3>Sign Up</h3> 
@@ -81,8 +84,13 @@ export default class SignUp extends Component {
 
                 <Button type="submit" style={{marginTop:'7%'}}>Sign Up</Button>
                 {/* <p className="forgot-password text-right">
-                    Already registered <a href="/login">sign in?</a>
+                    Already registered <a href="/">sign in?</a>
                 </p> */}
+               
+                <p className="forgot-password text-right">
+                Already registered?
+                <Link tag="a" to="/login"> Sign in!</Link>
+                </p>
                 </div>
                 </div>
             </form>

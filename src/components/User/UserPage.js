@@ -37,7 +37,7 @@ const UserPage=()=> {
                 </CardBody>
             
             </Card>
-<ListGroup>
+{/* <ListGroup>
 
 <ListGroupItem>
   <Link
@@ -59,13 +59,10 @@ const UserPage=()=> {
     New User? Register!
   </Link>
 </ListGroupItem>
-</ListGroup>
+</ListGroup> */}
           {/* <div className="auth-wrapper" style={{marginTop:'5%'}}>
             <div className="auth-inner"> */}
-              <Switch>
-                <Route exact path='/login' component={Login} />
-                <Route exact path="/sign-up" component={SignUp} />
-              </Switch>
+             
             {/* </div>
           </div> */}
           </Container>

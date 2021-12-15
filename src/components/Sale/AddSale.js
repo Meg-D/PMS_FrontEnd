@@ -35,6 +35,7 @@ const AddSale = (props) => {
                                                         // });
                                                         console.log(response.data.amount);
                                                         
+                                                        
                                                         //alert("Total Amount : "+ response.data.amount);
                                                         setBill(response.data.amount);
                                                         console.log(bill);
@@ -188,15 +189,15 @@ const AddSale = (props) => {
         <FormGroup style={{marginTop:'4%'}}>
             <Label for="exampleResource">Select Medicine</Label>
             <Input type="select" name="select" id="equipmentResource" onChange={(e) => {
-                    const medicineName = e.target.value;
-                    const id = medicineName.split(" ")[0];
+                    const medicinevalue = e.target.value;
+                    const id = medicinevalue.split(" ")[0];
                     for(var i=0;i<medicines.length;i++){
                         var obj = medicines[i];
-                        if(obj.medicine_id == id){
+                        if(obj.name == id){
                             setmedicine(obj)
                             newobj.push(obj);
                             setList({...selectedList,newobj});
-                            setitem({...item,med_id:id})
+                            setitem({...item,med_id:obj.medicine_id})
                             
                         }
                     }
@@ -205,7 +206,7 @@ const AddSale = (props) => {
                 }}>
                     <option>[Select one]</option>
                     {
-                        medicines.length > 0 ? medicines.map((item) => <option>{item.medicine_id +" "+ item.name+", Price - "+item.cost+", Quantity - "+item.quantity_left}</option>) : "No Medicines"
+                        medicines.length > 0 ? medicines.map((item) => <option>{item.name+" , Price - "+item.cost+", Quantity - "+item.quantity_left}</option>) : "No Medicines"
                     }
                 </Input>
             </FormGroup>
@@ -247,14 +248,16 @@ const AddSale = (props) => {
                                                         </ModalFooter>
                                                     </Modal> */}
 
-<Modal show={show} onHide={handleClose}>
+<Modal show={show} onHide={handleClose} size="lg"
+      aria-labelledby="contained-modal-title-vcenter"
+      centered>
         <Modal.Header closeButton>
           <Modal.Title>Bill</Modal.Title>
         </Modal.Header>
         <Modal.Body>Total Amount : {bill}</Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Close
+          <Button color="success" onClick={handleClose}>
+            Okay
           </Button>
           {/* <Button variant="primary" onClick={handleClose}>
             Save Changes

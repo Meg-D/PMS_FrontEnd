@@ -6,6 +6,7 @@ import base_url from "../../api/bootapi";
 import { Row,Col,Container } from 'reactstrap';
 import Sale
  from "../Sale/Sale";
+ import { toast } from "react-toastify";
 const Customerhistory=(props)=>{
     const [sales,setSales] = useState([]);
     const[phone,setPhone]=useState('');
@@ -16,6 +17,15 @@ const Customerhistory=(props)=>{
                 console.log(response.data);
                 setSales(response.data);
                 console.log(sales);
+                if(response.data==[]){
+                    toast.error("Customer does not exists, add Customer and then Try Again!!")
+                }
+                else
+                {toast.success("Customer Fetched!!",{
+                    position: "bottom-center",
+                })
+            }
+                
             },
             (error)=>{
                 console.log(error);

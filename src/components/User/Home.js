@@ -13,7 +13,7 @@ const Home=(props)=>{
             </Row>
             <Row>
             <Switch>
-                <Route exact path='/login' component={Login} />
+                <Route exact path='/' component={Login} />
                 <Route exact path="/sign-up" component={SignUp} />
               </Switch>
             </Row>
